@@ -1,0 +1,69 @@
+# Third-party material in this repository
+
+The MIT licence in `LICENSE` covers the first-party work. The items below are
+other people's and keep their own terms. Where a licence asks for attribution,
+this file is that attribution.
+
+## Vendored source
+
+**Monocypher** — `beta1/vendor/monocypher/`
+Dual-licensed **BSD-2-Clause OR CC0-1.0**. Full text in
+`beta1/vendor/monocypher/LICENCE.md`; every file carries an SPDX identifier.
+Copyright Loup Vaillant, Michael Savage and Fabio Scotoni.
+Used for X25519, Ed25519, ChaCha20, Poly1305 and SHA-512.
+
+*Version:* the headers read `Monocypher version __git__`, so this was taken
+from a git checkout rather than a release. `beta1/specification.md` calls it
+4.0.2; treat the vendored files as authoritative and re-pin against an
+upstream release before relying on the number.
+
+**miniz** — `beta1/vendor/miniz/`
+**MIT**. Full text in `beta1/vendor/miniz/LICENSE`.
+Copyright Rich Geldreich and Tenacious Software LLC, RAD Game Tools and Valve
+Software. Only `tinfl` (inflate) is used — the client needs to decompress what
+a server sends and never compresses anything itself.
+
+## Glyphs
+
+`beta1/src/fbvdu.bas` carries bitmap glyph data as `DATA` statements. Most of
+it is generated from geometry and owes nobody anything; two families do not.
+
+**DejaVu Sans Mono** — under the **Bitstream Vera Fonts Copyright**
+(Bitstream, Inc.) with Public Domain additions by the DejaVu authors.
+Rasterised to 8x8 by `beta1/tools/mklatin.py`, `mksym.py` and `mkdbox.py` for
+part of the Latin-1 block, a couple of dozen symbols, and the double
+box-drawing set. The licence permits modification and redistribution; note its
+naming clause — do not call a derived font "DejaVu".
+
+**Nerd Fonts** — 27 icons in slots 276-302, rasterised by
+`beta1/tools/mkicons.py` from a Nerd Font build. Nerd Fonts aggregates several
+upstreams under different terms, and these 27 draw on:
+
+| Source | Licence |
+|---|---|
+| Font Awesome (free) | **CC-BY-4.0** — attribution required, which is this row |
+| Material Design Icons | Apache-2.0 |
+| Octicons | MIT |
+| Devicons | MIT |
+| Powerline | MIT |
+| Seti-UI | MIT |
+
+**Generated, and owing nothing:** braille (U+2800-28FF), the block elements
+(U+2580-259F), sextants and octants, and the legacy diagonals (U+1FB3C-1FB8B)
+are all computed — the last of those from Unicode's own character *names*,
+because no font on the build machine contained them. See `beta1/docs/glyphs.md`.
+
+**Not included:** the 8x8 font the engine harvests off the Raspberry Pi's VDU
+driver at run time. Those glyphs belong to that driver, so no copy is
+distributed here. `beta1/test/fbfont.bas` harvests it from your own machine.
+
+## Documentation and hardware, referenced but not included
+
+None of the following is redistributed. Each is named where the documentation
+relies on it, and you will need your own copy:
+
+- **Sprow's Network Programmer's API** (`netprogapi.pdf`) — the authority for
+  the OSWORD &C0 socket interface described in `beta1/specification.md` §4.
+- **Acorn** BBC Master manuals, service manuals and circuit diagrams.
+- **PiTubeDirect** (hoglet67) schematics and firmware — its own repository.
+- Commercial BBC Micro software used while testing the display engine.

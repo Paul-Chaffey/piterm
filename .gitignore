@@ -1,0 +1,12 @@
+# The Samba share the Beeb mounts is regenerated, never edited: every file in
+# it is a CR-terminated or tokenised copy of something in beta1/src or
+# beta1/test. Rebuild it with tools/mirror.sh rather than committing it.
+share/
+
+# Build output: the SSH blob, its ARM objects, the merged BASIC listings.
+build/
+
+# Local emulator build and assembler binary - rebuild, do not track.
+beta1/tools/b-em/
+beta1/tools/beebasm
+__pycache__/
