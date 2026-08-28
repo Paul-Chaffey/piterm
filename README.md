@@ -8,10 +8,14 @@ It logs into modern machines over SSH, at 80x64, in colour.
 ```
 CTRL-BREAK
 *ARMBASIC
-*MOUNT \\deskbox\BEEBOS
+*MOUNT \\deskbox\BEEBOS       ... or *ADFS, if you would rather not
 *DIR Pi-TERM
 CHAIN "SSH"
 ```
+
+It loads over a Samba share or off an ADFS volume, unchanged either way:
+nothing in the terminal knows which filing system it came from. See
+`beta1/docs/getting-started.md`.
 
 ## What is interesting about it
 
