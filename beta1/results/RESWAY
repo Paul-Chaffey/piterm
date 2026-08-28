@@ -1,0 +1,11 @@
+[fbway1]
+run=39337 window_cs=300
+connected to 192.0.2.10:2323
+way  calls  hits  bytes   cs   bytes_per_sec  biggest
+1    802    52    3248    300  1082           64
+2    846    20    600     300  200            32
+3    861    0     0       300  0              0
+4    770    1     1024    310  330            1024
+1    844    12    724     300  241            64
+eof=0
+[end]

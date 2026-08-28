@@ -1,0 +1,11 @@
+[fbsave]
+run=544417
+page=&8F00
+top=&A585
+memlen=5765
+save_cs=35
+filelen=5765
+load_cs=41
+diffwords=0
+verdict=pass
+[end]

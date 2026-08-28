@@ -1,0 +1,9 @@
+[fbpal2]
+mode=21
+screen=&1F8B0000
+pitch=640
+control=Y
+vdu19=1
+osword12call=returned
+osword12=1
+[end]

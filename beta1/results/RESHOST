@@ -1,0 +1,9 @@
+[fbhost1]
+run=25585 reps=100
+himem=3000
+connected to 192.0.2.10:2324
+empty_poll size=64 calls=100 got=0 bytes=0 cs=494 us_per_call=49400 wouldblock=100 bad=0
+connected to 192.0.2.10:2323
+read64 size=64 calls=100 got=85 bytes=5308 cs=537 us_per_call=53700 wouldblock=15 bad=0
+read1 size=1 calls=100 got=100 bytes=100 cs=507 us_per_call=50700 wouldblock=0 bad=0
+[end]

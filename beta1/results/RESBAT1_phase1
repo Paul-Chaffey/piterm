@@ -1,0 +1,62 @@
+== FBBATT phase 1 ==
+== WROTE == Fri,21 Aug 2026.16:40:15
+== MARKERS == Delay 45 Repeat 17
+== CLOCK BEFORE == Mar,5A êò© 197B.F9:12:08
+== STATUS BEFORE ==
+Configuration status:
+Baud     1
+No Boot
+Shift Caps
+Data     0
+Delay    0
+Directory
+Internal Tube
+FDrive   0
+File     0
+Hard
+Ignore   0
+Lang     0
+Mode     0
+No Tube
+Quiet
+Print    0
+Repeat   0
+Scroll
+TV       0,0
+EMLink   Unset
+EMAdvertise Unset
+EMAddr   Unset
+EMMask   Unset
+Gateway  Unset
+DNS      Unset
+== CLOCK AFTER 8 == Mar,5A êò© 197B.F9:12:10
+== CLOCK AFTER 0 == Mar,5A êò© 197B.F9:12:10
+== STATUS AFTER ==
+Configuration status:
+Baud     1
+No Boot
+Shift Caps
+Data     0
+Delay    45
+Directory
+Internal Tube
+FDrive   0
+File     0
+Hard
+Ignore   0
+Lang     0
+Mode     0
+No Tube
+Quiet
+Print    0
+Repeat   17
+Scroll
+TV       0,0
+EMLink   Unset
+EMAdvertise Unset
+EMAddr   Unset
+EMMask   Unset
+Gateway  Unset
+DNS      Unset
+== END ==
+

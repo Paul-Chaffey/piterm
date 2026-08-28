@@ -1,0 +1,8 @@
+[fbscroll1]
+run=618204
+screen=&1F8B0000 pitch=640
+first_paint=5120
+first_paint_stale=0 at 
+after_8_scrolls_stale=0 at 
+after_40_scrolls_stale=0 at 
+[end]

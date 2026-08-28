@@ -1,0 +1,7 @@
+[fbnull1]
+run=32531 reps=1000
+connected to 192.0.2.10:2324
+full calls=1000 cs=328 us_per_call=3280
+noosw calls=1000 cs=1 us_per_call=10
+bare calls=1000 cs=1 us_per_call=10
+[end]

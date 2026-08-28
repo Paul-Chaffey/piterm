@@ -1,0 +1,23 @@
+[fbvdu1]
+run=556840
+geometry=80x64 cell=8x8
+screen=&1F8B0000 pitch=640
+full_flush_cs=5 painted=848
+p1_palette=Y
+p1_ansi=Y
+p1_box=Y
+p1_cursor=Y
+small_flush_cs=1 painted=31
+attr_flush_cs=3 painted=988
+p2_attr=Y
+p2_ink=Y
+page3_painted=497
+p3_dec=Y
+p3_utf8=Y
+p3_bar=Y
+p3_notch=Y
+scroll10_cs=59
+scroll10_above=0
+scroll10_exposed=530
+scroll10_repainted=530
+[end]

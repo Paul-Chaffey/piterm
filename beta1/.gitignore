@@ -1,0 +1,41 @@
+# Local patched b-em build - rebuild it, do not track it.
+# The patch (fflush in src/uservia.c) is documented in tools/beeb-test.sh.
+tools/b-em/
+
+# Assembler binary and the ROM images it produces
+tools/beebasm
+build/
+
+# A 2.2GB mirror of bbcmicro.co.uk - 3000 files and a dozen zips over 40MB,
+# several past GitHub's 100MB hard limit, so this cannot be pushed even if it
+# were wanted. Same category as downloads/ below: fetched, not authored.
+bbcmicro.co.uk/
+
+# Downloaded disc images and their archives, and images extracted from them.
+# Unpack with tools/ssd-extract.py - see docs/ssd-to-beeb.md.
+downloads/
+
+# Photographs of the hardware and screen
+pictures/
+
+# Everything the Beeb mounts over Samba is a CR-terminated copy of test/*.bas,
+# regenerated from the source there. ARCADE is the exception: it has no source
+# in this repo, it is unpacked from a disc image.
+share/*
+!share/GAMES
+# share/ is the LANManFS mount the Beeb sees. Keep it SMALL and keep every
+# name to 8 characters or fewer: the filing system truncates longer ones,
+# so PTERMRUN.inf arrived as a second PTERMRUN sitting on top of the
+# program and *mount answered "media changed".
+!share/ARCADE
+
+# Emulator scratch: b-em's printer capture, and the AUTO file beeb-test.sh
+# writes for each run. ARCADE is kept so the loose-file load can be retested.
+emu/output.txt
+emu/vdfs/*
+!emu/vdfs/ARCADE
+!emu/vdfs/ARCADE.inf
+
+.claude/settings.local.json
+emu/tube.cfg
+tools/__pycache__/

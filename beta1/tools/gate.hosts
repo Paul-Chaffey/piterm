@@ -1,0 +1,19 @@
+# Destinations offered to the Beeb by tools/gate.sh.
+#
+#   label  target
+#
+# label   what the menu shows, and what can be typed instead of the number
+# target  an ssh destination, or "-" for a shell on the gateway itself
+#
+# The gateway authenticates with its own key and never asks the Beeb for
+# a password (gate.sh refuses password and keyboard-interactive auth), so
+# every target listed here must already accept this machine's public key:
+#
+#   ssh-copy-id user@target
+#
+# and must already be in this machine's known_hosts, or the first
+# connection stops to ask about the host key over the Beeb's link. One
+# ordinary ssh from a normal session settles that.
+
+deskbox  -
+self      user@localhost

@@ -1,0 +1,10 @@
+[ptermerr1]
+err=26 line=686 stage=0
+cursor=0,0 pw=0
+region=0-63 origin=0
+sgr fg=7 bg=0 flags=0
+parser vst=0 u8n=0 np=0 prv=0
+alt=0 altbuf=&0 awm=-1 ins=0
+telnet tstate=0 tverb=0
+socket=-1 rsz=1
+[end]

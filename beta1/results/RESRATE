@@ -1,0 +1,14 @@
+[fbrate1]
+run=9437 window_cs=300
+connected to 192.0.2.10:2323
+size  calls  hits  bytes   cs   bytes_per_sec  wouldblock
+1     833    833   833     300  277            0      bad=0
+8     814    306   2439    300  813            508    bad=0
+32    777    149   4724    300  1574           628    bad=0
+64    819    36    2164    301  718            783    bad=0
+128   843    6     768     300  256            837    bad=0
+256   837    3     748     300  249            834    bad=0
+512   860    0     0       300  0              860    bad=0
+64    832    24    1500    300  500            808    bad=0
+eof=0
+[end]

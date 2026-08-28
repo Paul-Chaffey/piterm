@@ -1,0 +1,27 @@
+[pterm1]
+geometry=80x64
+received=6972 reads=1361 short=0 e1e=1238 rmax=64
+discarded d1=0 d2=0 d3=0 lasta=0 lastg=0 rmax_now=64
+busy_cs=167 naps=4592 napn=100000
+peeks=0 fellback=0 lasterr=0 peeknow=0
+send_dropped=0 retries=0 worst=0
+[burst] pumps=14 bytes=6858 cs=155 reads=125
+  burst_rate=4424 bytes/sec
+  per_read us=12400 bytes=5486/100
+queue_depth_when_peeked qmax=4096
+  1-64=0 65-256=0 257-1024=0 1025-2048=0 over2048=1
+throughput=4174 bytes/sec
+stale_cells=27
+stale_cols=3:1 4:1 5:1 6:1 7:1 8:1 9:1 10:1 12:1 13:1 14:1 15:1 16:1 17:1 18:1 19:1 20:1 21:1 22:1 23:1 25:1 26:1 27:1 28:1 29:1 30:1 31:1 
+stale_rows=2:27 
+stale_first=163
+stale_model x,y=glyph/fg/bg/flags
+3,2=120op1 4,2=114op1 5,2=119op1 6,2=120op1 7,2=114op1 8,2=45op1 9,2=120op1 10,2=32op1 12,2=50op1 13,2=32op1 14,2=112op1 
+stale_ops=1:27 
+glass_text=prof: 49snapshots ->RESPROF
+glass_pixels x,y:8 rows of bits
+3,2:00007C66667C6060 4,2:00006C7660606000 5,2:00003C6666663C00 6,2:1C30307C30303000 7,2:0000181800181800 8,2:0000000000000000 
+[trimmed]
+The screen dump that followed has been removed for publication: it
+was a verbatim capture of a live desktop. The measurement above is
+unchanged and is what the documentation cites.

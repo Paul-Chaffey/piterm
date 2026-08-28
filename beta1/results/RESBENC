@@ -1,0 +1,15 @@
+[fbbench]
+run=426200
+mode=21
+screen=&1F8B0000
+size=327680
+pitch=640
+a_proc_8x8_cs=9 cells=5120
+b_inline_8x8_cs=9 cells=5120
+c_unrolled_8x8_cs=9 cells=5120
+d_inline_8x16_cs=9 cells=2560
+e_shadow_cs=1 cells=5120 differed=1
+f_scrollmove_cs=4 bytes=322560
+g_words_cs=0 bytes=8192
+g_bytes_cs=1 bytes=8192
+[end]

@@ -1,0 +1,32 @@
+== FBRTC ==
+== VRT FIRST READ == D 0
+== REGISTERS 0-63 ==
+00: 49 EC 05 F3 00 4B 07 22 
+08: 08 26 20 02 10 80 A3 00 
+10: 00 00 00 C8 FF FF 00 00 
+18: 00 00 19 09 00 00 10 00 
+20: 00 00 00 00 00 00 00 00 
+28: 00 00 00 00 00 00 00 00 
+30: 00 00 00 00 00 00 00 00 
+38: 00 00 00 00 00 00 00 00 
+== CLOCK REGISTERS ==
+sec 51 min 5 hour 0
+dow 7 date 22 month 8 year 26
+alarm sec EC min F3 hour 4B
+== CONTROL ==
+A 20  UIP 0 DV 2 RS 0
+  DV 2 is the only running setting; RS 0 disables the periodic tick
+B 2  SET 0 PIE 0 AIE 0 UIE 0
+  SQWE 0 DM 0 24/12 1 DSE 0
+  DM 1 is BINARY counting - the MOS assumes BCD, so DM 1 alone
+  would explain a year printing as 197B and an hour as F9.
+  PIE with RS non-zero is a free-running IRQ nothing claims.
+C 10  IRQF 0 PF 0 AF 0 UF 1
+D 80  VRT 1  <- SECOND READ, IGNORE IT
+  The VRT that means anything is the VRT FIRST READ line at
+  the top: 0 there says backup power has been lost. Reading
+  register D sets the bit, so this one always says 1.
+C again after 1s 10  IRQF 0 PF 0 UF 1
+  C clears when read. Anything set again is being REGENERATED.
+== END ==
+

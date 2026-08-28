@@ -1,0 +1,7 @@
+total 4
+drwxrwxr-x 4 1000 1000 100 Aug 28 21:06 .
+drwxrwxr-x 3 1000 1000  60 Aug 28 21:06 ..
+-rw-rw-r-- 1 1000 1000   6 Aug 28 21:06 hello.txt
+drwxrwxr-x 2 1000 1000  60 Aug 28 21:06 notes
+drwxrwxr-x 2 1000 1000  80 Aug 28 21:06 project
+q

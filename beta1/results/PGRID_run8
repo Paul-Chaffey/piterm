@@ -1,0 +1,16 @@
+[pterm1]
+geometry=80x64
+received=13295 reads=4259 short=0 e1e=4012 rmax=64
+discarded d1=0 d2=0 d3=0 lasta=0 lastg=0 rmax_now=64
+busy_cs=1444 naps=2615
+throughput=920 bytes/sec
+stale_cells=143
+stale_cols=14:6 17:1 30:30 32:7 39:48 46:51 
+stale_rows=0:2 1:2 3:3 4:2 5:3 7:3 8:3 10:3 11:3 12:3 13:3 14:3 16:2 18:3 19:3 20:2 21:2 22:3 23:2 24:2 25:2 26:3 27:3 28:2 30:3 31:3 32:3 33:3 34:3 35:3 36:3 37:1 38:3 39:1 41:4 42:4 43:3 44:2 
+stale_first=39
+stale_model x,y=glyph/fg/bg/flags
+39,0=32/7/0/0 46,0=32/7/0/0 39,1=32/7/0/0 46,1=32/7/0/0 30,3=32/7/0/0 39,3=32/7/0/0 46,3=32/7/0/0 39,4=32/7/0/0 46,4=32/7/0/0 30,5=32/7/0/0 39,5=32/7/0/0 
+[trimmed]
+The screen dump that followed has been removed for publication: it
+was a verbatim capture of a live desktop. The measurement above is
+unchanged and is what the documentation cites.

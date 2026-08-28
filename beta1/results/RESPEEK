@@ -1,0 +1,17 @@
+[fbpeek1]
+run=50161
+connected to 192.0.2.10:2323
+--- 1. does a peek return data
+peek8_a=+3=0 n=8 [ABCDEFGH]
+peek=YES
+--- 2. is it non-destructive
+peek8_b=+3=0 n=8 [ABCDEFGH]
+peek_same=YES
+--- 3. what does an over-asked peek do
+peek200=+3=0 n=116
+oversize_peek=REPORTS
+--- 4. does the real read still see everything
+recv8=+3=0 n=8 [ABCDEFGH]
+peek_kept_data=YES
+recv8_next=+3=0 n=8 [IJKLMNOP]
+[end]

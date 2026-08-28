@@ -1,0 +1,29 @@
+[pterm1]
+geometry=80x64
+received=28661 reads=3529 short=0 e1e=3045 rmax=64
+discarded d1=0 d2=0 d3=0 lasta=0 lastg=0 rmax_now=64
+busy_cs=751 naps=10082 napn=100000
+fb_cached=&1F8B0000 pit=640 sz=327680
+fb_now=&1F8B0000 pit=640 sz=327680
+peeks=0 fellback=0 lasterr=0 peeknow=0
+send_dropped=0 retries=0 worst=0
+[burst] pumps=51 bytes=27739 cs=687 reads=495
+  burst_rate=4037 bytes/sec
+  per_read us=13878 bytes=5603/100
+queue_depth_when_peeked qmax=4096
+  1-64=0 65-256=0 257-1024=0 1025-2048=1 over2048=10
+throughput=3816 bytes/sec
+stale_cells=426
+stale_cols=0:19 1:42 2:35 3:16 4:27 5:17 6:8 7:16 8:16 9:8 12:7 14:18 15:18 16:18 17:18 19:18 20:18 21:18 22:18 25:4 26:4 27:5 28:5 30:1 31:4 32:2 34:1 38:12 39:11 40:11 41:8 44:3 
+stale_rows=14:3 15:4 16:4 17:5 18:5 19:3 20:5 21:4 22:4 23:3 24:5 25:5 26:3 27:5 28:5 29:5 30:4 31:15 32:17 33:17 35:18 37:24 38:16 39:23 40:17 41:17 42:23 43:16 44:17 45:15 46:15 52:22 53:27 
+stale_first=1121
+stale_model x,y=glyph/fg/bg/flags
+1,14=114op1 2,14=119op1 5,14=45op1 1,15=114op1 2,15=119op1 4,15=114op1 5,15=45op1 1,16=114op1 2,16=119op1 4,16=114op1 5,16=45op1 
+stale_ops=0:129 1:60 4:28 6:1 7:1 8:1 11:1 12:1 14:1 15:1 22:1 
+glass_text=                                                                                                                                                                                                        
+glass_pixels x,y:8 rows of bits
+1,14:0000000000000000 2,14:0000000000000000 5,14:0000000000000000 1,15:0000000000000000 2,15:0000000000000000 4,15:0000000000000000 
+[trimmed]
+The screen dump that followed has been removed for publication: it
+was a verbatim capture of a live desktop. The measurement above is
+unchanged and is what the documentation cites.

@@ -1,0 +1,12 @@
+# HOSTS - names PTERM can be given at its startup prompt.
+# Address first, like /etc/hosts. Aliases after the first name work.
+#
+# Tried BEFORE the module's DNS, which does work - the answer is read out of
+# host memory with OSWORD 5. This file is the local override, and it is also
+# what works with the network down.
+#
+# Note the module does NOT append a search domain: PTERM asks for the bare
+# name and then for name.lan, which is what resolv.conf does on the Linux side.
+192.0.2.10 deskbox
+192.0.2.20 beeb
+192.0.2.30 archbox
