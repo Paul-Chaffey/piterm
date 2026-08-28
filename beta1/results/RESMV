@@ -1,0 +1,8 @@
+[fbmv1]
+himem=C800000
+fastmv=-1  (-1 = assembled move in use, 0 = fell back)
+offset_move_2560 wrong=0
+stopped at the right byte
+100x4096 cs=0
+10x4096 cs=0
+[end]

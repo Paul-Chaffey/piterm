@@ -1,0 +1,177 @@
+s=1 t=855165 where=4 got=0 pump=1 parse=0 flush=0 keys=0
+  scrolls=0 scrollcs=0 flushes=1 cells=1
+  reads=1 e1e=1 retry=0 lastscroll=0,0,0,0
+s=2 t=855466 where=4 got=349 pump=25 parse=1 flush=4 keys=1
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=279 e1e=273 retry=0 lastscroll=0,0,0,0
+s=3 t=855766 where=4 got=349 pump=25 parse=1 flush=4 keys=1
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=530 e1e=524 retry=0 lastscroll=0,0,0,0
+s=4 t=856066 where=4 got=349 pump=25 parse=1 flush=4 keys=1
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=781 e1e=775 retry=0 lastscroll=0,0,0,0
+s=5 t=856366 where=4 got=2384 pump=173 parse=4 flush=18 keys=15
+  scrolls=0 scrollcs=0 flushes=13 cells=941
+  reads=1098 e1e=1055 retry=0 lastscroll=0,0,0,0
+s=6 t=856670 where=4 got=2997 pump=224 parse=5 flush=26 keys=21
+  scrolls=0 scrollcs=0 flushes=18 cells=1177
+  reads=1386 e1e=1330 retry=0 lastscroll=0,0,0,0
+s=7 t=856970 where=4 got=4420 pump=309 parse=7 flush=37 keys=27
+  scrolls=0 scrollcs=0 flushes=23 cells=1845
+  reads=1645 e1e=1564 retry=0 lastscroll=0,0,0,0
+s=8 t=857270 where=4 got=5025 pump=388 parse=7 flush=48 keys=38
+  scrolls=0 scrollcs=0 flushes=30 cells=1867
+  reads=1961 e1e=1865 retry=0 lastscroll=0,0,0,0
+s=9 t=857570 where=4 got=5033 pump=518 parse=8 flush=62 keys=59
+  scrolls=0 scrollcs=0 flushes=38 cells=1875
+  reads=2327 e1e=2223 retry=0 lastscroll=0,0,0,0
+s=10 t=857911 where=4 got=8151 pump=776 parse=150 flush=79 keys=61
+  scrolls=79 scrollcs=132 flushes=44 cells=4311
+  reads=2444 e1e=2288 retry=0 lastscroll=0,63,1,0
+s=11 t=858211 where=4 got=9540 pump=864 parse=205 flush=87 keys=61
+  scrolls=110 scrollcs=186 flushes=46 cells=5189
+  reads=2653 e1e=2475 retry=0 lastscroll=0,63,1,0
+s=12 t=858511 where=4 got=10699 pump=917 parse=215 flush=92 keys=64
+  scrolls=114 scrollcs=194 flushes=50 cells=5258
+  reads=2913 e1e=2712 retry=0 lastscroll=0,63,1,0
+s=13 t=858811 where=4 got=12439 pump=1029 parse=225 flush=103 keys=73
+  scrolls=118 scrollcs=201 flushes=56 cells=5343
+  reads=3227 e1e=2993 retry=0 lastscroll=0,63,1,0
+s=14 t=859111 where=4 got=14182 pump=1130 parse=232 flush=113 keys=80
+  scrolls=119 scrollcs=203 flushes=62 cells=7317
+  reads=3486 e1e=3221 retry=0 lastscroll=0,63,1,0
+s=15 t=859412 where=4 got=16282 pump=1215 parse=235 flush=124 keys=87
+  scrolls=119 scrollcs=203 flushes=67 cells=8103
+  reads=3791 e1e=3491 retry=0 lastscroll=0,63,1,0
+s=16 t=859711 where=4 got=19582 pump=1321 parse=238 flush=136 keys=95
+  scrolls=119 scrollcs=203 flushes=73 cells=9172
+  reads=4103 e1e=3748 retry=0 lastscroll=0,63,1,0
+s=17 t=860011 where=4 got=20782 pump=1391 parse=238 flush=142 keys=102
+  scrolls=119 scrollcs=203 flushes=77 cells=9350
+  reads=4408 e1e=4033 retry=0 lastscroll=0,63,1,0
+s=18 t=860311 where=4 got=22882 pump=1462 parse=241 flush=149 keys=104
+  scrolls=119 scrollcs=203 flushes=79 cells=10227
+  reads=4645 e1e=4236 retry=0 lastscroll=0,63,1,0
+s=19 t=860650 where=4 got=25582 pump=1555 parse=243 flush=156 keys=107
+  scrolls=119 scrollcs=203 flushes=83 cells=10548
+  reads=4938 e1e=4486 retry=0 lastscroll=0,63,1,0
+s=20 t=860950 where=4 got=26482 pump=1613 parse=246 flush=159 keys=111
+  scrolls=119 scrollcs=203 flushes=85 cells=10638
+  reads=5231 e1e=4764 retry=0 lastscroll=0,63,1,0
+s=21 t=861250 where=4 got=26482 pump=1613 parse=246 flush=159 keys=111
+  scrolls=119 scrollcs=203 flushes=85 cells=10638
+  reads=5475 e1e=5008 retry=0 lastscroll=0,63,1,0
+s=22 t=861550 where=4 got=27382 pump=1670 parse=246 flush=161 keys=113
+  scrolls=119 scrollcs=203 flushes=86 cells=10692
+  reads=5711 e1e=5229 retry=0 lastscroll=0,63,1,0
+s=23 t=861850 where=4 got=27382 pump=1670 parse=246 flush=161 keys=113
+  scrolls=119 scrollcs=203 flushes=86 cells=10692
+  reads=5956 e1e=5474 retry=0 lastscroll=0,63,1,0
+s=24 t=862150 where=4 got=27382 pump=1670 parse=246 flush=161 keys=113
+  scrolls=119 scrollcs=203 flushes=86 cells=10692
+  reads=6201 e1e=5719 retry=0 lastscroll=0,63,1,0
+s=25 t=862450 where=4 got=28582 pump=1716 parse=248 flush=164 keys=114
+  scrolls=119 scrollcs=203 flushes=88 cells=10919
+  reads=6422 e1e=5920 retry=0 lastscroll=0,63,1,0
+s=26 t=862750 where=4 got=30082 pump=1755 parse=250 flush=169 keys=117
+  scrolls=119 scrollcs=203 flushes=91 cells=11449
+  reads=6687 e1e=6161 retry=0 lastscroll=0,63,1,0
+s=27 t=863050 where=4 got=31882 pump=1831 parse=253 flush=172 keys=122
+  scrolls=119 scrollcs=203 flushes=95 cells=11511
+  reads=6926 e1e=6371 retry=0 lastscroll=0,63,1,0
+s=28 t=863350 where=4 got=34282 pump=1899 parse=257 flush=180 keys=125
+  scrolls=119 scrollcs=203 flushes=98 cells=12186
+  reads=7208 e1e=6614 retry=0 lastscroll=0,63,1,0
+s=29 t=863650 where=4 got=34882 pump=1950 parse=257 flush=183 keys=127
+  scrolls=119 scrollcs=203 flushes=99 cells=12287
+  reads=7445 e1e=6841 retry=0 lastscroll=0,63,1,0
+s=30 t=863950 where=4 got=37282 pump=2038 parse=261 flush=189 keys=131
+  scrolls=119 scrollcs=203 flushes=103 cells=12538
+  reads=7697 e1e=7054 retry=0 lastscroll=0,63,1,0
+s=31 t=864250 where=4 got=39682 pump=2129 parse=266 flush=195 keys=136
+  scrolls=119 scrollcs=203 flushes=106 cells=13236
+  reads=7952 e1e=7271 retry=0 lastscroll=0,63,1,0
+s=32 t=864550 where=4 got=40582 pump=2198 parse=268 flush=199 keys=139
+  scrolls=119 scrollcs=203 flushes=108 cells=13354
+  reads=8200 e1e=7504 retry=0 lastscroll=0,63,1,0
+s=33 t=864850 where=4 got=40582 pump=2198 parse=268 flush=199 keys=139
+  scrolls=119 scrollcs=203 flushes=108 cells=13354
+  reads=8444 e1e=7748 retry=0 lastscroll=0,63,1,0
+s=34 t=865150 where=4 got=41482 pump=2262 parse=269 flush=203 keys=140
+  scrolls=119 scrollcs=203 flushes=110 cells=13464
+  reads=8688 e1e=7977 retry=0 lastscroll=0,63,1,0
+s=35 t=865450 where=4 got=41482 pump=2262 parse=269 flush=203 keys=140
+  scrolls=119 scrollcs=203 flushes=110 cells=13464
+  reads=8932 e1e=8221 retry=0 lastscroll=0,63,1,0
+s=36 t=865750 where=4 got=41482 pump=2262 parse=269 flush=203 keys=140
+  scrolls=119 scrollcs=203 flushes=110 cells=13464
+  reads=9176 e1e=8465 retry=0 lastscroll=0,63,1,0
+s=37 t=866050 where=4 got=41482 pump=2262 parse=269 flush=203 keys=140
+  scrolls=119 scrollcs=203 flushes=110 cells=13464
+  reads=9420 e1e=8709 retry=0 lastscroll=0,63,1,0
+s=38 t=866350 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=9682 e1e=8961 retry=0 lastscroll=0,63,1,0
+s=39 t=866650 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=9926 e1e=9205 retry=0 lastscroll=0,63,1,0
+s=40 t=866950 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=10171 e1e=9450 retry=0 lastscroll=0,63,1,0
+s=41 t=867250 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=10415 e1e=9694 retry=0 lastscroll=0,63,1,0
+s=42 t=867550 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=10660 e1e=9939 retry=0 lastscroll=0,63,1,0
+s=43 t=867850 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=10905 e1e=10184 retry=0 lastscroll=0,63,1,0
+s=44 t=868150 where=4 got=42082 pump=2286 parse=270 flush=207 keys=141
+  scrolls=119 scrollcs=203 flushes=111 cells=13546
+  reads=11150 e1e=10429 retry=0 lastscroll=0,63,1,0
+s=45 t=868450 where=4 got=43582 pump=2395 parse=273 flush=214 keys=146
+  scrolls=119 scrollcs=203 flushes=115 cells=13626
+  reads=11437 e1e=10691 retry=0 lastscroll=0,63,1,0
+s=46 t=868750 where=4 got=44182 pump=2437 parse=273 flush=217 keys=150
+  scrolls=119 scrollcs=203 flushes=117 cells=13732
+  reads=11715 e1e=10959 retry=0 lastscroll=0,63,1,0
+s=47 t=869050 where=4 got=49282 pump=2557 parse=276 flush=227 keys=156
+  scrolls=119 scrollcs=203 flushes=123 cells=14992
+  reads=11962 e1e=11125 retry=0 lastscroll=0,63,1,0
+s=48 t=869350 where=4 got=49282 pump=2557 parse=276 flush=227 keys=156
+  scrolls=119 scrollcs=203 flushes=123 cells=14992
+  reads=12208 e1e=11371 retry=0 lastscroll=0,63,1,0
+s=49 t=869650 where=4 got=50182 pump=2592 parse=280 flush=230 keys=158
+  scrolls=121 scrollcs=207 flushes=125 cells=15078
+  reads=12471 e1e=11619 retry=0 lastscroll=0,63,1,0
+s=50 t=869950 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=12732 e1e=11866 retry=0 lastscroll=0,63,1,0
+s=51 t=870250 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=12977 e1e=12111 retry=0 lastscroll=0,63,1,0
+s=52 t=870550 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=13222 e1e=12356 retry=0 lastscroll=0,63,1,0
+s=53 t=870850 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=13467 e1e=12601 retry=0 lastscroll=0,63,1,0
+s=54 t=871150 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=13712 e1e=12846 retry=0 lastscroll=0,63,1,0
+s=55 t=871450 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=13957 e1e=13091 retry=0 lastscroll=0,63,1,0
+s=56 t=871750 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=14202 e1e=13336 retry=0 lastscroll=0,63,1,0
+s=57 t=872050 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=14445 e1e=13579 retry=0 lastscroll=0,63,1,0
+s=58 t=872350 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=14690 e1e=13824 retry=0 lastscroll=0,63,1,0
+s=59 t=872650 where=4 got=51063 pump=2623 parse=284 flush=232 keys=161
+  scrolls=123 scrollcs=211 flushes=126 cells=15126
+  reads=14935 e1e=14069 retry=0 lastscroll=0,63,1,0

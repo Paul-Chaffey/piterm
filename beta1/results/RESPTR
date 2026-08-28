@@ -1,0 +1,11 @@
+[ptrtest1]
+run=47518
+page=&8F00 himem=&C800000
+block=&1A890
+recvbuf=&1A9F4 low16=&A9F4
+presence +2=0 +3=1E
+creat +3=0 sock=3
+sockaddr=&1A8BC
+connect +2=0 +3=1E
+ptr_out=NO
+[end]

@@ -1,0 +1,9 @@
+# tube_delay sweep. One line per completed TUBECRC run.
+# bad/passes is the corruption rate; 64KiB crosses the Tube per pass.
+# Record cold/hot because upstream #154 is a thermal report on this Pi model.
+# mode is the HOST screen mode - mode 0 froze 4 of 4, mode 7 passed 3 of 3.
+delay	passes	bad	secs	mode	cold_hot	notes
+0	200	8		7		first point; 4% of 64KiB passes corrupted, ~6.1e-7 per byte
+40	200	8		7		far extreme; identical to td=0 within Poisson noise (8+-2.8)
+20	200	7		7		midpoint; 8/8/7 across 0/40/20 - FLAT, tube_delay is not the lever
+20	200	16		7		TUBEDIFF: 471480 badbytes, flat EOR - LOST BYTE, block shifts. Sum caught only 7 of 16

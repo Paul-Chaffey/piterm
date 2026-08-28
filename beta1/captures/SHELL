@@ -1,0 +1,11 @@
+hello.txt  notes  project
+total 0
+drwxrwxr-x 2 1000 1000  80 Aug 28 21:06 .
+drwxrwxr-x 4 1000 1000 100 Aug 28 21:06 ..
+-rw-rw-r-- 1 1000 1000   0 Aug 28 21:06 main.c
+-rw-rw-r-- 1 1000 1000   0 Aug 28 21:06 readme.txt
+done
+a	b	c
+hello
+status=1
+q

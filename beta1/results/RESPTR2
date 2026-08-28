@@ -1,0 +1,21 @@
+[ptrtest2]
+run=87540
+page=&8F00
+block=&A414
+lo_sa=&A444 lo_buf=&A474
+hi_sa=&1A6A0 hi_buf=&1A6D0
+lo_creat +2=0 +3=0 sock=3
+lo_connect +2=0 +3=0 tries=1
+lo_out=YES
+lo_recv reported=16 changed=1 of 16
+lo_buf=34 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 
+lo_txt=4UUUUUUUUUUUUUUU
+lo_in=YES
+hi_creat +2=0 +3=0 sock=3
+hi_connect +2=0 +3=0 tries=1
+hi_out=YES
+hi_recv reported=16 changed=1 of 16
+hi_buf=34 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 
+hi_txt=4UUUUUUUUUUUUUUU
+hi_in=YES
+[end]

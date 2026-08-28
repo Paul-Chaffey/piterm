@@ -1,0 +1,78 @@
+s=1 t=256539 where=4 got=0 pump=0 parse=0 flush=0 keys=0
+  scrolls=0 scrollcs=0 flushes=1 cells=1
+  reads=1 e1e=1 retry=0 lastscroll=0,0,0,0
+s=2 t=256840 where=4 got=349 pump=165 parse=0 flush=16 keys=17
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=414 e1e=408 retry=0 lastscroll=0,0,0,0
+s=3 t=257140 where=4 got=349 pump=328 parse=0 flush=27 keys=35
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=814 e1e=808 retry=0 lastscroll=0,0,0,0
+s=4 t=257439 where=4 got=349 pump=490 parse=0 flush=39 keys=52
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=1214 e1e=1208 retry=0 lastscroll=0,0,0,0
+s=5 t=257740 where=4 got=349 pump=650 parse=0 flush=53 keys=66
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=1615 e1e=1609 retry=0 lastscroll=0,0,0,0
+s=6 t=258040 where=4 got=349 pump=808 parse=0 flush=67 keys=79
+  scrolls=0 scrollcs=0 flushes=3 cells=38
+  reads=2014 e1e=2008 retry=0 lastscroll=0,0,0,0
+s=7 t=258340 where=4 got=2384 pump=988 parse=2 flush=81 keys=90
+  scrolls=0 scrollcs=0 flushes=8 cells=941
+  reads=2354 e1e=2313 retry=0 lastscroll=0,0,0,0
+s=8 t=258640 where=4 got=3236 pump=1156 parse=2 flush=101 keys=111
+  scrolls=0 scrollcs=0 flushes=12 cells=1324
+  reads=2748 e1e=2690 retry=0 lastscroll=0,0,0,0
+s=9 t=258940 where=4 got=4419 pump=1333 parse=4 flush=115 keys=125
+  scrolls=0 scrollcs=0 flushes=15 cells=1844
+  reads=3094 e1e=3016 retry=0 lastscroll=0,0,0,0
+s=10 t=259240 where=4 got=4420 pump=1495 parse=4 flush=131 keys=144
+  scrolls=0 scrollcs=0 flushes=16 cells=1845
+  reads=3491 e1e=3412 retry=0 lastscroll=0,0,0,0
+s=11 t=259540 where=4 got=5022 pump=1656 parse=4 flush=142 keys=160
+  scrolls=0 scrollcs=0 flushes=19 cells=1863
+  reads=3887 e1e=3796 retry=0 lastscroll=0,0,0,0
+s=12 t=259840 where=4 got=5027 pump=1822 parse=5 flush=157 keys=180
+  scrolls=0 scrollcs=0 flushes=24 cells=1868
+  reads=4286 e1e=4190 retry=0 lastscroll=0,0,0,0
+s=13 t=260140 where=4 got=5031 pump=1984 parse=6 flush=170 keys=194
+  scrolls=0 scrollcs=0 flushes=28 cells=1872
+  reads=4684 e1e=4584 retry=0 lastscroll=0,0,0,0
+s=14 t=260479 where=4 got=8151 pump=2232 parse=147 flush=192 keys=200
+  scrolls=79 scrollcs=138 flushes=35 cells=4601
+  reads=4840 e1e=4686 retry=0 lastscroll=0,63,1,0
+s=15 t=260779 where=4 got=9540 pump=2412 parse=205 flush=206 keys=212
+  scrolls=110 scrollcs=192 flushes=38 cells=5480
+  reads=5135 e1e=4958 retry=0 lastscroll=0,63,1,0
+s=16 t=261079 where=4 got=10629 pump=2578 parse=214 flush=222 keys=227
+  scrolls=113 scrollcs=198 flushes=45 cells=5552
+  reads=5510 e1e=5309 retry=0 lastscroll=0,63,1,0
+s=17 t=261405 where=4 got=14660 pump=2791 parse=222 flush=247 keys=240
+  scrolls=114 scrollcs=200 flushes=56 cells=8345
+  reads=5825 e1e=5556 retry=0 lastscroll=0,63,1,0
+s=18 t=261705 where=4 got=17172 pump=2965 parse=225 flush=262 keys=254
+  scrolls=114 scrollcs=200 flushes=64 cells=9156
+  reads=6213 e1e=5902 retry=0 lastscroll=0,63,1,0
+s=19 t=262005 where=4 got=25272 pump=3172 parse=236 flush=281 keys=257
+  scrolls=114 scrollcs=200 flushes=77 cells=10744
+  reads=6456 e1e=6014 retry=0 lastscroll=0,63,1,0
+s=20 t=262305 where=4 got=26772 pump=3342 parse=238 flush=296 keys=272
+  scrolls=114 scrollcs=200 flushes=82 cells=10895
+  reads=6848 e1e=6381 retry=0 lastscroll=0,63,1,0
+s=21 t=262605 where=4 got=30072 pump=3515 parse=241 flush=314 keys=282
+  scrolls=114 scrollcs=200 flushes=87 cells=11565
+  reads=7220 e1e=6699 retry=0 lastscroll=0,63,1,0
+s=22 t=262907 where=4 got=33560 pump=3692 parse=244 flush=330 keys=294
+  scrolls=114 scrollcs=200 flushes=93 cells=11847
+  reads=7597 e1e=7020 retry=0 lastscroll=0,63,1,0
+s=23 t=263214 where=4 got=42072 pump=3889 parse=256 flush=352 keys=302
+  scrolls=114 scrollcs=200 flushes=105 cells=13376
+  reads=7935 e1e=7221 retry=0 lastscroll=0,63,1,0
+s=24 t=263514 where=4 got=45972 pump=4072 parse=260 flush=369 keys=313
+  scrolls=114 scrollcs=200 flushes=111 cells=13779
+  reads=8262 e1e=7485 retry=0 lastscroll=0,63,1,0
+s=25 t=263814 where=4 got=48372 pump=4255 parse=264 flush=385 keys=324
+  scrolls=114 scrollcs=200 flushes=117 cells=14287
+  reads=8602 e1e=7785 retry=0 lastscroll=0,63,1,0
+s=26 t=264114 where=4 got=49272 pump=4417 parse=264 flush=395 keys=340
+  scrolls=114 scrollcs=200 flushes=119 cells=14334
+  reads=8994 e1e=8162 retry=0 lastscroll=0,63,1,0

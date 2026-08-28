@@ -1,0 +1,5 @@
+[fbasm1]
+run=88574
+connected to 192.0.2.10:2324
+asm_osword calls=1000 cs=183 us_per_call=1830
+[end]

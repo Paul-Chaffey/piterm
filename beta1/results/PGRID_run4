@@ -1,0 +1,10 @@
+[pterm1]
+geometry=80x64
+received=14412 reads=13111 short=0 e1e=12843 rmax=64
+discarded d1=0 d2=0 d3=0 lasta=0 lastg=0 rmax_now=64
+busy_cs=1522 naps=11326
+throughput=946 bytes/sec
+[trimmed]
+The screen dump that followed has been removed for publication: it
+was a verbatim capture of a live desktop. The measurement above is
+unchanged and is what the documentation cites.

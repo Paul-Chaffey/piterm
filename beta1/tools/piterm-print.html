@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>PiTerm — Specification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap">
+
+<style>
+:root{
+  --ground:#f1f3f7;
+  --panel:#ffffff;
+  --panel-2:#e9ecf3;
+  --rule:#d3d8e3;
+  --rule-soft:#e3e7ef;
+  --ink:#12151d;
+  --ink-2:#4d5568;
+  --ink-3:#7a8296;
+  --accent:#0d6f74;
+  --accent-ink:#ffffff;
+  --amber:#8a6512;
+  --live:#1d7a45;
+  --halt:#b03a30;
+  --cell:8px;
+  --measure:74ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#090b10;
+    --panel:#11141c;
+    --panel-2:#171b25;
+    --rule:#242a39;
+    --rule-soft:#1b202b;
+    --ink:#dce0ea;
+    --ink-2:#9aa3b8;
+    --ink-3:#6f7789;
+    --accent:#3ecbcb;
+    --accent-ink:#06181a;
+    --amber:#d3bb52;
+    --live:#4fbe74;
+    --halt:#e0645a;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#090b10;
+  --panel:#11141c;
+  --panel-2:#171b25;
+  --rule:#242a39;
+  --rule-soft:#1b202b;
+  --ink:#dce0ea;
+  --ink-2:#9aa3b8;
+  --ink-3:#6f7789;
+  --accent:#3ecbcb;
+  --accent-ink:#06181a;
+  --amber:#d3bb52;
+  --live:#4fbe74;
+  --halt:#e0645a;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---- rail: the section markers are real subsystem ids, not decoration ---- */
+.band{border-bottom:1px solid var(--rule)}
+.band-inner{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0}
+@media (max-width:760px){.band-inner{grid-template-columns:minmax(0,1fr)}}
+.rail{
+  border-right:1px solid var(--rule);
+  padding:40px 16px 40px 0;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--ink-3);
+  text-transform:uppercase;
+  text-align:right;
+}
+@media (max-width:760px){
+  .rail{border-right:0;border-bottom:1px solid var(--rule-soft);text-align:left;padding:24px 0 8px}
+}
+.body{padding:40px 0 48px 28px;min-width:0}
+@media (max-width:760px){.body{padding:16px 0 40px}}
+
+h1,h2,h3{font-family:"Saira Condensed","Arial Narrow",Arial,sans-serif;font-weight:700;text-wrap:balance;margin:0}
+h2{font-size:30px;letter-spacing:.01em;line-height:1.1}
+h3{font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);margin:0 0 10px}
+p{margin:0 0 16px;max-width:var(--measure)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---- hero ---- */
+.hero{
+  border-bottom:1px solid var(--rule);
+  background:
+    repeating-linear-gradient(to right,var(--rule-soft) 0 1px,transparent 1px var(--cell)),
+    repeating-linear-gradient(to bottom,var(--rule-soft) 0 1px,transparent 1px var(--cell)),
+    var(--panel);
+}
+.hero-in{padding:64px 0 52px}
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 18px;
+}
+.title{
+  font-family:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  font-weight:700;
+  font-size:clamp(56px,13vw,132px);
+  line-height:.86;
+  letter-spacing:-.005em;
+  margin:0 0 20px;
+}
+.lede{font-size:20px;line-height:1.5;color:var(--ink-2);max-width:60ch;margin:0 0 30px}
+.lede strong{color:var(--ink);font-weight:600}
+
+.keyfacts{
+  display:grid;gap:1px;background:var(--rule);
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border:1px solid var(--rule);
+}
+.kf{background:var(--panel);padding:16px 18px}
+.kf-n{
+  font-family:"Saira Condensed","Arial Narrow",Arial,sans-serif;
+  font-weight:700;font-size:34px;line-height:1;letter-spacing:.01em;
+  font-variant-numeric:tabular-nums;
+}
+.kf-l{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:7px;
+}
+
+/* ---- palette strip: the actual xterm ANSI 16 it programs ---- */
+.swatches{display:flex;height:10px;margin:34px 0 0;border:1px solid var(--rule)}
+.swatches span{flex:1;border-right:1px solid var(--rule)}
+.swatches span:last-child{border-right:0}
+
+/* ---- spec tables ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:460px}
+caption{
+  text-align:left;padding:12px 16px;border-bottom:1px solid var(--rule);
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+  background:var(--panel-2);
+}
+th,td{text-align:left;padding:10px 16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tr:last-child th,tr:last-child td{border-bottom:0}
+th{font-weight:600;color:var(--ink-2);width:42%;font-size:14.5px}
+td{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+td em{font-style:normal;color:var(--ink-3)}
+
+.stack{display:flex;flex-direction:column;gap:24px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+
+/* ---- capability list ---- */
+ul.caps{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+ul.caps li{background:var(--panel);padding:11px 16px;display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:baseline}
+@media (max-width:560px){ul.caps li{grid-template-columns:minmax(0,1fr);gap:3px}}
+ul.caps b{
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:400;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+}
+ul.caps span{font-size:14.5px;color:var(--ink-2)}
+
+/* ---- measured badge ---- */
+.tag{
+  display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border:1px solid currentColor;border-radius:2px;
+  vertical-align:1px;margin-left:8px;
+}
+.tag.live{color:var(--live)}
+.tag.halt{color:var(--halt)}
+
+.note{
+  border:1px solid var(--rule);border-left:3px solid var(--halt);
+  background:var(--panel);padding:20px 22px;
+}
+.note h3{color:var(--halt)}
+/* the same box, once the thing it describes has been fixed */
+.note.solved{border-left-color:var(--live)}
+.note.solved h3{color:var(--live)}
+.note p:last-child{margin-bottom:0}
+
+footer{padding:34px 0 56px;color:var(--ink-3);font-size:13.5px}
+footer p{max-width:var(--measure)}
+code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.92em;color:var(--amber)}
+</style><style>
+/* ---- print only. The screen design is unchanged; this makes it survive
+       being put on paper, where there is no scrolling and no dark mode. ---- */
+@page{size:A4;margin:13mm}
+:root{color-scheme:light}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-size:10.5pt;line-height:1.5}
+.wrap{max-width:none;padding:0}
+.hero-in{padding:6mm 0 5mm}
+.title{font-size:64pt}
+.lede{font-size:12pt;max-width:none}
+.body{padding:6mm 0 7mm 6mm}
+.rail{padding:6mm 4mm 6mm 0}
+h2{font-size:19pt}
+p{max-width:none}
+table{min-width:0}
+/* Side-by-side tables get ~85mm on A4, which wraps a monospace cell four
+   words to a line. On paper they stack and take the full measure. */
+.two{grid-template-columns:minmax(0,1fr);gap:5mm}
+th{width:30%;font-size:10pt}
+td{font-size:9.5pt}
+ul.caps li{grid-template-columns:80px minmax(0,1fr)}
+/* Keep a fact, a table or a finding from being split across a page break. */
+.kf,.note,.tablewrap,ul.caps li{break-inside:avoid}
+.band{break-inside:auto}
+h2,h3{break-after:avoid}
+footer{padding:6mm 0 0}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <p class="eyebrow">BBC Master 128 · Raspberry Pi co-processor · SSH-2 · 1986 + 2026</p>
+    <h1 class="title">PiTerm</h1>
+    <p class="lede">A <strong>real VT102 terminal</strong> on a forty-year-old British micro, and it logs in over <strong>SSH</strong>. Not an emulator, not a serial toy — a purpose-built terminal engine that owns the framebuffer, and a from-scratch SSH client doing curve25519 key exchange on the co-processor. Live Linux at <strong>80&times;64 in 256 colours</strong>.</p>
+
+    <div class="keyfacts">
+      <div class="kf"><div class="kf-n">80&times;64</div><div class="kf-l">characters, 8&times;8 cell</div></div>
+      <div class="kf"><div class="kf-n">256</div><div class="kf-l">colours, exact xterm</div></div>
+      <div class="kf"><div class="kf-n">25,295</div><div class="kf-l">bytes / sec to the glass</div></div>
+      <div class="kf"><div class="kf-n">1.35s</div><div class="kf-l">connect to a live shell</div></div>
+    </div>
+
+    <div class="swatches" aria-hidden="true">
+      <span style="background:#000000"></span><span style="background:#cd0000"></span>
+      <span style="background:#00cd00"></span><span style="background:#cdcd00"></span>
+      <span style="background:#0000ee"></span><span style="background:#cd00cd"></span>
+      <span style="background:#00cdcd"></span><span style="background:#e5e5e5"></span>
+      <span style="background:#7f7f7f"></span><span style="background:#ff0000"></span>
+      <span style="background:#00ff00"></span><span style="background:#ffff00"></span>
+      <span style="background:#5c5cff"></span><span style="background:#ff00ff"></span>
+      <span style="background:#00ffff"></span><span style="background:#ffffff"></span>
+    </div>
+  </div>
+</header>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">What it is</div>
+  <div class="body">
+    <h2>A terminal, built rather than approximated</h2>
+    <p>Every previous attempt to put a VT on a BBC micro rendered through the machine's own VDU driver — and inherited its semantics. That driver has no deferred wrap, no second screen buffer, no insert or delete line, and it scrolls the screen if you write the bottom-right cell. Terminals built on it spend their lives compensating.</p>
+    <p>PiTerm takes the bytes and produces the pixels. It decodes UTF-8, runs a full VT parser, keeps its own cell model with attributes and damage tracking, and blits directly into the Raspberry Pi co-processor's framebuffer. VT semantics are correct <em>by construction</em>, not emulated on top of something that disagrees.</p>
+    <p>The screen has been checked cell for cell against <code>pyte</code> on captured streams from a real pty — every character and every attribute — and on hardware, rows 1&ndash;63 of a live <code>top</code> session matched the reference exactly. All 5,040 cells.</p>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Display</div>
+  <div class="body">
+    <h2>FBVDU &mdash; the display engine</h2>
+    <div class="stack">
+      <div class="tablewrap"><table>
+        <caption>Geometry &amp; output</caption>
+        <tbody>
+          <tr><th>Screen mode</th><td>MODE 21 &mdash; 640&times;512, 256 colours, HDMI</td></tr>
+          <tr><th>Text geometry</th><td>80 &times; 64 characters on an 8&times;8 cell</td></tr>
+          <tr><th>Colour</th><td>All 256 palette entries individually programmable <em>&mdash; exact xterm-256color, no nearest-colour reduction</em></td></tr>
+          <tr><th>Font</th><td>101 glyphs harvested from the Pi VDU driver at startup, in 1 cs</td></tr>
+          <tr><th>Glyph coverage</th><td>DEC line drawing, box drawing, block elements, arrows</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="tablewrap"><table>
+        <caption>Measured on hardware</caption>
+        <tbody>
+          <tr><th>Blit rate</th><td>16,960 cells / sec</td></tr>
+          <tr><th>Full 80&times;64 repaint</th><td>9 cs &mdash; 11 complete screens a second</td></tr>
+          <tr><th>Worst-case repaint</th><td>30 cs</td></tr>
+          <tr><th>Typical flush</th><td>105 cells <em>&mdash; a </em><code>top</code><em> frame</em></td></tr>
+          <tr><th>Parser throughput</th><td>124,868 bytes / sec</td></tr>
+          <tr><th>Scroll</th><td>0.20 cs a line &mdash; 368,000 bytes moved</td></tr>
+          <tr><th>23,725-byte session</th><td>0.75 s, drained 512 bytes at a time</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">VT102</div>
+  <div class="body">
+    <h2>Implemented, not approximated</h2>
+    <ul class="caps">
+      <li><b>Wrap</b><span>Deferred wrap as a real pending-wrap flag</span></li>
+      <li><b>Regions</b><span>DECSTBM scrolling regions in the model &mdash; no window arithmetic</span></li>
+      <li><b>Alt screen</b><span>An alternate screen that <em>restores</em> &mdash; ?1049, ?47, ?1047/1048</span></li>
+      <li><b>Editing</b><span>IL, DL, ICH, DCH, ECH, SU, SD &mdash; what every TUI leans on</span></li>
+      <li><b>C0</b><span>BEL, BS, HT with real tab stops, LF/VT/FF, CR, SO/SI</span></li>
+      <li><b>ESC</b><span>DECSC/DECRC, IND, NEL, RI, RIS, charset select, ESC # 8</span></li>
+      <li><b>Cursor</b><span>CUU/CUD/CUF/CUB, CNL/CPL, CHA/HPA/VPA, CUP/HVP, DECSCUSR</span></li>
+      <li><b>Erase</b><span>ED 0/1/2/3, EL 0/1/2</span></li>
+      <li><b>SGR</b><span>Full, including 38;5;n, 48;5;n and 38;2;r;g;b truecolour</span></li>
+      <li><b>Modes</b><span>DECSET/DECRST for ?1 ?7 ?12 ?25 ?1049 ?2004; mouse modes parsed</span></li>
+      <li><b>Replies</b><span>DSR 5/6 and DA both answer &mdash; a first for this machine</span></li>
+      <li><b>Encoding</b><span>UTF-8 decoded to glyph indices</span></li>
+    </ul>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Terminal</div>
+  <div class="body">
+    <h2>PTERM &mdash; the client</h2>
+    <div class="two">
+      <div class="tablewrap"><table>
+        <caption>Session</caption>
+        <tbody>
+          <tr><th>Protocol</th><td>SSH-2. <em>Telnet with IAC negotiation is retained as the fallback</em></td></tr>
+          <tr><th>Window size</th><td>80&times;64, as a <code>window-change</code> channel request</td></tr>
+          <tr><th>Cursor keys</th><td>DECCKM, asked of the engine</td></tr>
+          <tr><th>Reply channel</th><td>DSR and DA answers returned up the socket</td></tr>
+          <tr><th>Interrupt</th><td>CTRL-] answers during a long drain</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tablewrap"><table>
+        <caption>Transport</caption>
+        <tbody>
+          <tr><th>Sockets</th><td>Berkeley sockets via OSWORD &amp;C0, driven from BASIC</td></tr>
+          <tr><th>Throughput</th><td>4,268 bytes / sec on the wire <em>&mdash; 88% of the module's ceiling, and no longer what limits the screen</em></td></tr>
+          <tr><th>Integrity</th><td>46,052 bytes, 13,888 reads, 0 short, 0 discarded</td></tr>
+          <tr><th>Read strategy</th><td>Adaptive sizing with a peek fallback</td></tr>
+          <tr><th>File transfer</th><td>14 KB/sec over LANManFS</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Transport</div>
+  <div class="body">
+    <h2>An SSH client, written for a machine that had none</h2>
+    <p>The terminal used to speak plaintext telnet to a gateway, because the received wisdom was sound: modern key exchange on a 2&nbsp;MHz 6502 is not viable. That was true, and it was about the wrong processor. The terminal does not run on the 6502 &mdash; it runs on the co-processor, where <strong>X25519 costs under a millisecond</strong>.</p>
+    <div class="tablewrap"><table>
+      <caption>Negotiated with OpenSSH 10.2, on the hardware</caption>
+      <tbody>
+        <tr><th>Key exchange</th><td><code>curve25519-sha256</code>, with <code>kex-strict-c-v00</code> &mdash; <em>the Terrapin mitigation, which matters because the chosen cipher is the one Terrapin targets</em></td></tr>
+        <tr><th>Host key</th><td><code>ssh-ed25519</code>, signature verified on the co-processor</td></tr>
+        <tr><th>Cipher</th><td><code>chacha20-poly1305@openssh.com</code>, both directions</td></tr>
+        <tr><th>Authentication</th><td>public key, Ed25519. <em>Passwords are not implemented and will not be</em></td></tr>
+        <tr><th>Compression</th><td><code>zlib@openssh.com</code>, server&rarr;client only &mdash; <em>so the client needs inflate and never deflate</em></td></tr>
+      </tbody>
+    </table></div>
+    <p>It is 48,844 bytes of ARM, loaded onto the co-processor and called from BASIC. The crypto core does <strong>no I/O at all</strong>: bytes in, bytes out, with BASIC keeping the socket. That split is why the terminal above it did not change &mdash; and why the same source compiles natively and can be driven against a real <code>sshd</code> on a Linux box, which is where every protocol bug was found rather than on a Beeb through a Tube.</p>
+    <p>The session key is seeded from the SoC's hardware random number generator, reachable from user mode on this core. <code>RND</code> never goes near it: a predictable ephemeral key does not fail loudly, it produces a working session that a listener can decrypt.</p>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Using it</div>
+  <div class="body">
+    <h2>The ceiling, and getting past it</h2>
+    <p>The Sprow module hands over about 56 bytes per read and a read costs 1.31&nbsp;cs, so <strong>4,872 bytes a second is the hard ceiling</strong> and PiTerm runs at 4,268 of it. Shells, <code>less</code>, <code>vim</code> &mdash; anything that redraws when you ask it to &mdash; are comfortable inside that.</p>
+    <p>A monitor that redraws on a <em>timer</em> is not. htop paints roughly 5&nbsp;KB a frame; at its default 1.5-second refresh that is 3,400 bytes a second against a 4,268 ceiling, and any hiccup grows a backlog that never drains. Measured on a real session, <strong>34.9% of htop's output was colour escapes alone</strong>.</p>
+    <div class="tablewrap"><table>
+      <caption>Measured at 80&times;64, 12-second captures</caption>
+      <tbody>
+        <tr><th><code>btop</code> as shipped</th><td>12,812 B/s &mdash; <em>3&times; over the ceiling, and 2,015 braille characters this font cannot draw</em></td></tr>
+        <tr><th><code>btop -t -u 10000</code></th><td>3,551 B/s &mdash; <em>tty mode: ANSI graph symbols, 16 colours, no braille</em></td></tr>
+        <tr><th><code>htop</code> default</th><td>3,193 B/s &mdash; <em>at 80% utilisation, no headroom</em></td></tr>
+        <tr><th><code>htop -d 50 -C</code></th><td><em>about 5&times; under the ceiling &mdash; the one to use</em></td></tr>
+      </tbody>
+    </table></div>
+    <p>btop is built for a modern terminal &mdash; braille graphs, truecolour gradients, block-element meters. <code>-t</code> removes the braille and drops truecolour from 55.5% of the stream to nothing, <strong>3.6&times; fewer bytes</strong>, but a frame is still 21&nbsp;KB: five seconds of Tube time for a ten-second update. htop is the better tool here.</p>
+    <p>The terminal cannot simply discard a backlog: VT state is cumulative, so every stale byte still has to be parsed or the screen would be wrong rather than merely late. Parsing costs 1.2% of a session and painting 3.1% — it is the reading that cannot be hurried.</p>
+    <div class="note solved">
+      <h3>And then the ceiling stopped being the limit</h3>
+      <p>Everything above is measured, and all of it assumed the bytes arrive as the far end wrote them. Inside SSH they do not have to. <code>zlib@openssh.com</code> compresses the stream before it reaches the wire, and a terminal stream is extraordinarily compressible: a third of it is colour escapes, repeated byte for byte on every frame, and deflate's 32&nbsp;KB window spans several frames of an 80&times;64 screen.</p>
+      <div class="tablewrap"><table>
+        <caption>Same machine, same workload — ten full screen redraws — compression the only difference</caption>
+        <tbody>
+          <tr><th>Bytes on the wire</th><td>41,780 &rarr; <strong>3,140</strong> &mdash; <em>13.3&times; fewer</em></td></tr>
+          <tr><th>Seconds</th><td>19.59 &rarr; <strong>1.62</strong> &mdash; <em>12.1&times; faster</em></td></tr>
+          <tr><th>Reaching the screen</th><td>2,092 &rarr; <strong>25,295 bytes/sec</strong></td></tr>
+        </tbody>
+      </table></div>
+      <p>The figure that mattered was written down long before it was reachable: <em>a full-screen app at 80&times;64 needs about 25&nbsp;KB/sec to feel live, and the module provides 4.3.</em> It now delivers <strong>25,295 bytes a second</strong> through the same module, because <strong>the ceiling was a property of the encoding and not of the hardware</strong>.</p>
+      <p>The module is no longer the constraint. During the run it was saturated in bursts — 4,008 bytes a second in one five-second window, 1,032 in the next — so what remains is a duty cycle with gaps to fill, not a wall to lift.</p>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Hardware</div>
+  <div class="body">
+    <h2>What it runs on</h2>
+    <div class="stack">
+      <div class="tablewrap"><table>
+        <caption>Host</caption>
+        <tbody>
+          <tr><th>Machine</th><td>BBC Master 128 &mdash; 65C12 @ 2 MHz, MOS 3.20</td></tr>
+          <tr><th>Introduced</th><td>1986</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tablewrap"><table>
+        <caption>Co-processor</caption>
+        <tbody>
+          <tr><th>Board</th><td>Raspberry Pi 3A+ @ 1.2 GHz, internal Tube connector</td></tr>
+          <tr><th>Firmware</th><td>PiTubeDirect &mdash; bare metal, no Linux</td></tr>
+          <tr><th>Mode</th><td>ARM native, BBC BASIC V</td></tr>
+          <tr><th>Memory</th><td>64 MB <em>&mdash; PAGE &amp;8F00 to HIMEM &amp;4000000</em></td></tr>
+          <tr><th>Display</th><td>Pi VDU driver &rarr; HDMI framebuffer</td></tr>
+        </tbody>
+      </table></div>
+      <div class="tablewrap"><table>
+        <caption>Network</caption>
+        <tbody>
+          <tr><th>Module</th><td>Sprow Master 10/100 Ethernet</td></tr>
+          <tr><th>Link</th><td>10/100 Mbps, auto-negotiate, auto-crossover, PoE capable</td></tr>
+          <tr><th>Protocols</th><td>ARP, DHCP, TCP/IP, UDP, DNS, NETBIOS, SMB, ICMP</td></tr>
+          <tr><th>Buffers</th><td>76 KB packet buffer, 1 KB non-volatile config</td></tr>
+          <tr><th>Transport</th><td>SSH-2 outbound. <em>The host CPU runs no code at all — the module is driven from the co-processor</em></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="band"><div class="wrap"><div class="band-inner">
+  <div class="rail">Status</div>
+  <div class="body">
+    <h2>Where it stands <span class="tag live">Running</span></h2>
+    <p>The display engine, the terminal client and the SSH transport are all finished and verified on the machine. A real shell renders correctly, byte-lossless, at 80&times;64, and holds for as long as it is left running — the longest sessions so far are a few minutes because that is how long the tests ran, not because anything ends them.</p>
+    <p>The SSH client was written from nothing in a day, from an assessment to a working terminal. <strong>There was no prior art</strong> — no SSH client has existed for a BBC Micro before, and the RISC OS ones do not port: one is SSHv1 and unmaintained, the other needs GTK.</p>
+
+    <h3>Still open</h3>
+    <ul class="caps">
+      <li><b>Host keys</b><span>The client verifies the host key <em>signature</em>, which proves the server holds the key it presented. It does not yet judge whether that is the key you meant — there is no <code>known_hosts</code> on the Beeb, so the fingerprint is compared by eye.</span></li>
+      <li><b>Glyphs</b><span>Braille, shading blocks and arrows are unmapped, so a program drawing graphs with them draws nothing. The font is harvested from the Pi VDU driver and simply has no such characters; braille is tractable, since a cell is 2&times;4 dots and the codepoint's low byte <em>is</em> the pattern.</span></li>
+      <li><b>The idle gap</b><span>With compression the module is no longer the constraint — it was saturated in bursts and idle between them. That is a duty cycle rather than a rate limit, and nobody has yet looked at what fills the gaps.</span></li>
+      <li><b>Post-quantum</b><span>The key exchange is classical, and OpenSSH 10.1 warns clients when it is. Servers still accept <code>curve25519-sha256</code> and no removal is scheduled, but <code>mlkem768x25519</code> is what this would eventually want.</span></li>
+    </ul>
+    <div class="note solved">
+      <h3>Settled earlier: the defect that blocked all of this for weeks</h3>
+      <p>Kept because it is the most useful thing this project learned. For weeks the co-processor wedged after tens of thousands of Tube transactions, and the terminal was blamed. It was never the terminal, and it was never one fault.</p>
+      <p><b>The host's screen mode.</b> A dead CMOS battery had pinned the machine in MODE 0, so every measurement ever taken was made in it. In MODE 7 the same test passes where MODE 0 froze four times out of four.</p>
+      <p><b>A missing capacitor.</b> The interface board carries no bulk decoupling at all, while mounting a Pi 3A+ held at 1.2 GHz. The 5&nbsp;V rail sagged under the Pi's transients and the Tube <em>silently dropped one byte per 874,000</em> &mdash; uniformly distributed, always exactly one byte, invisible to any test that does not checksum the transfer. One load in ten of the terminal's own program arrived with a byte missing, so it ran for minutes and then walked into the damage.</p>
+      <p>1000&nbsp;&micro;F and 100&nbsp;nF across 5&nbsp;V and ground took that to <strong>zero errors in 13.1&nbsp;MB</strong>. The terminal needed no change at all; the correct program had been arriving corrupted.</p>
+    </div>
+  </div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <p>Every figure on this page was measured on the physical machine, not estimated and not scaled from an emulator — a rule adopted after an emulator-derived prediction came in wrong by a factor of fifty. The compression figures were predicted on a Linux box first and then measured on the Beeb; the two agreed to <strong>0.24%</strong>.</p>
+</div></footer>
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+[fbpal]
+mode=21
+screen=&1F8B0000
+size=327680
+pitch=640
+readpalette=stub
+blocks=A
+distinct256=Y
+blue=N
+xterm=Y
+osword12=accepted
+osword=Y
+[end]

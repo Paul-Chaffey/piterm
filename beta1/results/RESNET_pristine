@@ -1,0 +1,27 @@
+== FBNET ==
+== FILE == Choices:Internet.Startup
+== TYPE == 1  (0 = not found, 1 = file)
+== LENGTH == 211
+== TEXT ==
+#
+# Interface settings
+#
+EMLink Auto
+EMAdvertise 10 Half Full 100 Half Full
+#
+# Network settings
+#
+EMAddr Auto
+EMMask Auto
+Gateway 192.0.2.1
+DNS 192.0.2.1
+#
+# CIFS defaults
+#
+Logon GUEST GUEST
+#
+# Hosts
+#
+
+== END ==
+

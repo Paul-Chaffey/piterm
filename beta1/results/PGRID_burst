@@ -1,0 +1,26 @@
+[pterm1]
+geometry=80x64
+received=40313 reads=11503 short=0 e1e=10811 rmax=64
+discarded d1=0 d2=0 d3=0 lasta=0 lastg=0 rmax_now=64
+busy_cs=2092 naps=8210
+peeks=0 fellback=0 lasterr=0 peeknow=0
+send_dropped=0
+[burst] pumps=66 bytes=39196 cs=2040 reads=698
+  burst_rate=1921 bytes/sec
+  per_read us=29226 bytes=5615/100
+queue_depth_when_peeked qmax=4096
+  1-64=0 65-256=0 257-1024=1 1025-2048=1 over2048=9
+throughput=1927 bytes/sec
+stale_cells=0
+stale_cols=
+stale_rows=
+stale_first=-1
+stale_model x,y=glyph/fg/bg/flags
+ÿ
+stale_ops=
+glass_pixels x,y:8 rows of bits
+ÿ
+[trimmed]
+The screen dump that followed has been removed for publication: it
+was a verbatim capture of a live desktop. The measurement above is
+unchanged and is what the documentation cites.

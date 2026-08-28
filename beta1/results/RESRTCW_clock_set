@@ -1,0 +1,9 @@
+== FBRTCW ==
+== BEFORE == A 20 B 2 C 10 D 80
+== BEFORE CLOCK == Fri,21 Aug 1926.22:27:54
+== AFTER == A 20 B 2 C 10 D 80
+== AFTER REGS == sec 21 min 38 hour 22 date 21 month 8 year 26
+== AFTER CLOCK == Fri,21 Aug 1926.22:38:21
+== AFTER CLOCK FIXED == Fri,21 Aug 2026.22:38:21
+== END ==
+
