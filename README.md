@@ -5,6 +5,27 @@ Raspberry Pi co-processor, with an SSH client written from scratch in C.
 
 It logs into modern machines over SSH, at 80x64, in colour.
 
+![btop at 80x64, drawn with the Beeb's own font](images/btop-80x64.png)
+
+**That is not a screenshot of a Linux terminal.** It is a real `btop` session
+replayed through the cell model and then drawn with FBVDU's own glyph table —
+every character is the exact 8x8 byte pattern the Beeb blits, at the exact
+640x512 the Pi framebuffer holds. `tools/beebshot.py` builds it the same way
+the machine does: the harvested base font, the drawn and rasterised families
+out of `src/fbvdu.bas`, and braille, the block elements and the rest from the
+same arithmetic the engine performs at boot.
+
+It shows what *should* be drawn. Whether those pixels reached the glass is a
+different question, and the one `stale_cells` answers on real hardware — where
+it reports 0 over 30,531 cells.
+
+![the glyph families, all 1,353 slots](images/glyphs-80x64.png)
+
+The font, exercised: double box drawing, the eighths ramp, quadrants and
+shades, Latin-1, all 60 sextants, the 80 legacy diagonals, all 230 octants.
+`tools/glyphtest.sh` prints it and **nothing in it should be a question mark** —
+that is what FBVDU draws for a codepoint it has no glyph for.
+
 ```
 CTRL-BREAK
 *ARMBASIC
