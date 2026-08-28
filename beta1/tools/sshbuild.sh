@@ -172,6 +172,11 @@ echo "sshbuild: state numbers agree with $pt  (OPEN=$1 ERROR=$2 CLOSED=$3 NEEDPA
 
 # The blob is BINARY and must not go through mirror.sh, which does
 # tr '\n' '\r' on everything it writes (specification.md 9.0).
+# MAKE THE DIRECTORY, DO NOT SKIP. This used to be a plain -d test, so on a
+# fresh clone - where share/Pi-TERM does not exist yet - the blob was
+# silently not copied and the build reported success. The Beeb then loaded
+# a terminal with no SSH core and failed somewhere unrelated.
+mkdir -p "$here/share/Pi-TERM"
 if [ -d "$here/share/Pi-TERM" ]; then
     cp "$here/build/SSHBLOB" "$here/share/Pi-TERM/SSHBLOB"
     cmp -s "$here/build/SSHBLOB" "$here/share/Pi-TERM/SSHBLOB" ||

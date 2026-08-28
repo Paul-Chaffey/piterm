@@ -12,6 +12,9 @@ tools/fbbuild.sh test/fbvt.bas   > build/FBRUN.bas
 tools/mirror.sh --dir Pi-TERM --tok build/PTERMRUN.bas build/FBRUN.bas
 tools/sshterm.sh                        # the quiet build, CHAIN "SSH"
 tools/sshkey.sh                         # the Beeb's own SSH key
+cp tools/HOSTS.example share/Pi-TERM/HOSTS      # then edit it - see below
+unix2dos share/Pi-TERM/HOSTS 2>/dev/null || \
+    python3 -c "import sys;p='share/Pi-TERM/HOSTS';d=open(p,'rb').read();open(p,'wb').write(d.replace(b'\n',b'\r'))"
 sudo bash tools/setup-samba.sh          # read its warning first
 tools/mirrorck.sh                       # is the share current with src/?
 ```
@@ -62,7 +65,10 @@ trade a diagnosable crash for a blank screen.
 ## Names, and the two things that fail silently
 
 `HOSTS` on the share maps names to addresses, `/etc/hosts`-style and
-**CR-terminated**. It is tried before the module's DNS, the way a Unix box
+**CR-terminated** — which is why the copy above translates the line endings;
+`tools/mirror.sh` does that for everything it writes, but `HOSTS` is edited by
+hand and does not go through it. The addresses in `HOSTS.example` are RFC 5737
+documentation ones and will not reach anything: replace them with yours. It is tried before the module's DNS, the way a Unix box
 tries the file first.
 
 Two LANManFS rules, both of which fail *silently* on the machine:
